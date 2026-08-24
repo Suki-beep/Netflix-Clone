@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-netflix-red: #e50914;
+  --color-netflix-black: #141414;
+  --color-netflix-dark: #181818;
+}
+
+html, body, #root {
+  background: #141414;
+  color: #fff;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* hidden scrollbars on carousels */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* toasts */
+.nf-toast { animation: nf-pop .28s cubic-bezier(.2,.8,.3,1) both; }
+@keyframes nf-pop {
+  from { opacity: 0; transform: translateY(12px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* profile intro splash */
+.nf-intro { animation: nf-fade 1.5s ease-out forwards; }
+.nf-intro-n {
+  animation: nf-zoom 1.5s cubic-bezier(.19,1,.22,1) forwards;
+  text-shadow: 0 0 60px rgba(229, 9, 20, .55);
+}
+@keyframes nf-zoom {
+  0% { transform: scale(.55) translateY(6%); opacity: 0; }
+  35% { transform: scale(1) translateY(0); opacity: 1; }
+  70% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(9); opacity: 0; }
+}
+@keyframes nf-fade {
+  0%, 65% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* player spinner */
+.nf-spinner {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 4px solid rgba(255,255,255,.2);
+  border-top-color: #e50914;
+  animation: nf-spin .8s linear infinite;
+}
+@keyframes nf-spin { to { transform: rotate(360deg); } }
+
+/* volume slider */
+.nf-range {
+  -webkit-appearance: none; appearance: none;
+  height: 4px; border-radius: 4px;
+  background: linear-gradient(to right, #fff 0%, #fff var(--v, 70%), rgba(255,255,255,.35) var(--v, 70%));
+  outline: none; cursor: pointer;
+}
+.nf-range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #fff; cursor: pointer;
+}
+.nf-range::-moz-range-thumb {
+  width: 12px; height: 12px; border: none; border-radius: 50%;
+  background: #fff; cursor: pointer;
+}
+
+/* selects */
+select option { background: #242424; color: #fff; }

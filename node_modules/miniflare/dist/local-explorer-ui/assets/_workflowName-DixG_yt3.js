@@ -1,0 +1,1 @@
+import{c as e}from"./useRouterState-DkU0JPAO.js";import{It as t}from"./index-CkemaNd1.js";var n=e(),r=()=>(0,n.jsx)(t,{});export{r as component};
