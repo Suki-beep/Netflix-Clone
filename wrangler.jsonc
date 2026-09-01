@@ -1,6 +1,3 @@
-// wrangler.jsonc
-"name": "netflix",
-
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "react-vite-tailwind",
